@@ -27,7 +27,12 @@ pipeline {
 
         stage('Archive Build Artifacts') {
             steps {
-                archiveArtifacts artifacts: 'build/**', fingerprint: true
+                archiveArtifacts artifacts: 'dist/**', fingerprint: true
+            }
+        }
+        stage('Copy Files to C Drive') {
+            steps {
+                bat 'xcopy /E /I /Y build C:\\react-build\\'
             }
         }
     }
