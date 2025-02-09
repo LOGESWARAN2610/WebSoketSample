@@ -31,9 +31,21 @@ pipeline {
             }
         }
 
+        stage('backup Files') {
+            steps {
+                powershell 'Copy-Item -Path C:\\react-build\\Test\\** -Destination C:\\react-build\\Test\\BKP\\ -Recurse -Force'
+            }
+        }
+
         stage('Copy Files to C Drive') {
             steps {
                 powershell 'Copy-Item -Path dist\\* -Destination C:\\react-build\\Test\\ -Recurse -Force'
+            }
+        }
+
+        stage('Copy Files to C Drive') {
+            steps {
+                powershell 'Copy-Item -Path dist\\* -Destination 192.168.1.112\\C$\\react-build\\Test1\\ -Recurse -Force'
             }
         }
     }
