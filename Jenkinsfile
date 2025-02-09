@@ -33,7 +33,7 @@ pipeline {
 
         stage('Copy Files to C Drive') {
             steps {
-                powershell 'Copy-Item -Path dist\\* -Destination C:\\react-build\\ -Recurse -Force'
+                powershell 'Copy-Item -Path dist\\* -Destination C:\\react-build\\Test\\ -Recurse -Force'
             }
         }
     }
