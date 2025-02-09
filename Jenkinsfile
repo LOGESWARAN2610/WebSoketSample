@@ -30,9 +30,10 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/**', fingerprint: true
             }
         }
+
         stage('Copy Files to C Drive') {
             steps {
-                bat 'xcopy /E /I /Y build C:\\react-build\\'
+                powershell 'Copy-Item -Path dist\\* -Destination C:\\react-build\\ -Recurse -Force'
             }
         }
     }
