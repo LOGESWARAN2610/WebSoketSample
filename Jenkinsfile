@@ -43,10 +43,6 @@ pipeline {
             }
         }
 
-        stage('Copy Files to C Drive') {
-            steps {
-                powershell 'Copy-Item -Path dist\\* -Destination 192.168.1.112\\C$\\react-build\\Test1\\ -Recurse -Force'
-            }
-        }
+       
     }
 }
